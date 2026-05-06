@@ -1,0 +1,45 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Input;
+using WpfJsonPlaceHolderAPI.Interfaces;
+using WpfJsonPlaceHolderAPI.Models;
+using WpfJsonPlaceHolderAPI.Services;
+using WpfJsonPlaceHolderAPI.Services.API;
+
+namespace WpfJsonPlaceHolderAPI.ViewModels
+{
+    public class PostViewModel : ObservableObject
+    {
+        //get post collection from api service
+        public ObservableCollection<PostModel> AllPosts { get; set; }
+        private readonly IPostApiService _postApiService;
+
+        //buttons Commands
+        public ICommand PostCommand { get; private set; }
+
+        public PostViewModel()
+        {
+            _postApiService = new PostApiService();
+            AllPosts = new ObservableCollection<PostModel>();
+            PostCommand = new RelayCommand<object>(async obj => await GetAllPosts());
+        }
+
+        //get post data from api and addto collection
+        private async Task GetAllPosts()
+        {
+            AllPosts.Clear();
+
+            var posts = await _postApiService.GetAllPostsAsync();
+
+            //add into collection
+            for(int i= 0;i < posts.Count; i++)
+            {
+                AllPosts.Add(posts[i]);
+            }
+        }
+    }
+}
