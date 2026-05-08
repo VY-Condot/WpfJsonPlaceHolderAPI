@@ -16,14 +16,16 @@ namespace WpfJsonPlaceHolderAPI.ViewModels
     {
         //get post collection from api service
         public ObservableCollection<PostModel> AllPosts { get; set; }
-        private readonly IPostApiService _postApiService;
+        //private readonly IPostApiService _postApiService;
+        //private readonly IApiDataCaching _apiDataCaching;
 
         //buttons Commands
         public ICommand PostCommand { get; private set; }
 
         public PostViewModel()
         {
-            _postApiService = new PostApiService();
+            //_apiDataCaching = new ApiDataCaching();
+            //_postApiService = new PostApiService();
             AllPosts = new ObservableCollection<PostModel>();
             PostCommand = new RelayCommand<object>(async obj => await GetAllPosts());
         }
@@ -33,7 +35,8 @@ namespace WpfJsonPlaceHolderAPI.ViewModels
         {
             AllPosts.Clear();
 
-            var posts = await _postApiService.GetAllPostsAsync();
+            //var posts = await _postApiService.GetAllPostsAsync();
+            var posts = await ApiDataCaching.Instance.GetAllPostsAsync();
 
             //add into collection
             for(int i= 0;i < posts.Count; i++)

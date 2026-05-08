@@ -13,7 +13,7 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="1">
-            <Button Content="Get Post" Margin="3,3,3,3" Height="40" FontWeight="Bold" FontSize="20" Command="{Binding PostCommand}"/>
+            <Button Content="Get Comments" Margin="3,3,3,3" Height="40" FontWeight="Bold" FontSize="20" Command="{Binding GetComments}"/>
         </StackPanel>
 
         <ListBox Grid.Row="0" ItemsSource="{Binding AllComments}">

@@ -9,10 +9,10 @@
         Title="MainWindow" Height="450" Width="800">
     
     <!-- set datacontext -->
-    <!--<Window.DataContext>
-        --><!--<vm:PostViewModel/>--><!--
+    <Window.DataContext>
+        <!--<vm:PostViewModel/>-->
         <vm:MainWindowViewModel/>
-    </Window.DataContext>-->
+    </Window.DataContext>
     
     <Grid>
         <!-- Drop in your PostView user control --><!--
