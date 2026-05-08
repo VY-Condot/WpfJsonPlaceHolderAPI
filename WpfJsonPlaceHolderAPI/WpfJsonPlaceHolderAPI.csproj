@@ -9,6 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Services\Cache\ApiDataCaching.cs" />
+    <Compile Remove="Services\PostSaveService.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Models\ResponseModel\" />
   </ItemGroup>
 

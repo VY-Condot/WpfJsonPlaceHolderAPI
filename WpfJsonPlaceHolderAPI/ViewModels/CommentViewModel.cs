@@ -36,10 +36,12 @@ namespace WpfJsonPlaceHolderAPI.ViewModels
 
             //var comments = await _commentApiService.GetAllCommentAsync();
 
-            var comments = await ApiDataCaching.Instance.GetAllCommentAsync();
+            //var comments = await ApiDataCaching.Instance.GetAllCommentAsync();
+
+            var comments = await RedisCache.Instance.GetAllCommentAsync();
 
             //add into observable collection
-            for(int i= 0;i<comments.Count; i++)
+            for (int i= 0;i<comments.Count; i++)
             {
                 AllComments.Add(comments[i]);
             }

@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 
 using System.Windows.Input;
+using WpfJsonPlaceHolderAPI.Interfaces;
 using WpfJsonPlaceHolderAPI.Models;
 using WpfJsonPlaceHolderAPI.Services;
 using WpfJsonPlaceHolderAPI.Services.Cache;
@@ -32,10 +33,11 @@ namespace WpfJsonPlaceHolderAPI.ViewModels
             AllPosts.Clear();
 
             //var posts = await _postApiService.GetAllPostsAsync();
-            var posts = await ApiDataCaching.Instance.GetAllPostsAsync();
+            //var posts = await ApiDataCaching.Instance.GetAllPostsAsync();
+            var posts = await RedisCache.Instance.GetAllPostsAsync();
 
             //add into collection
-            for(int i= 0;i < posts.Count; i++)
+            for (int i= 0;i < posts.Count; i++)
             {
                 AllPosts.Add(posts[i]);
             }

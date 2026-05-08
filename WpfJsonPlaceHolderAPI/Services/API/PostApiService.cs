@@ -27,7 +27,5 @@ namespace WpfJsonPlaceHolderAPI.Services.API
                 return posts;
             }
         }
-
-        
     }
 }
