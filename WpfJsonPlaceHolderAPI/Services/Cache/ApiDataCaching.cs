@@ -8,7 +8,7 @@ using WpfJsonPlaceHolderAPI.Interfaces;
 using WpfJsonPlaceHolderAPI.Models;
 using WpfJsonPlaceHolderAPI.Services.API;
 
-namespace WpfJsonPlaceHolderAPI.Services
+namespace WpfJsonPlaceHolderAPI.Services.Cache
 {
     public class ApiDataCaching : IApiDataCaching
     {

@@ -9,6 +9,7 @@ using WpfJsonPlaceHolderAPI.Interfaces;
 using WpfJsonPlaceHolderAPI.Models;
 using WpfJsonPlaceHolderAPI.Services;
 using WpfJsonPlaceHolderAPI.Services.API;
+using WpfJsonPlaceHolderAPI.Services.Cache;
 
 namespace WpfJsonPlaceHolderAPI.ViewModels
 {
